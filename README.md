@@ -199,9 +199,8 @@ sequenceDiagram
 ```
 crm-lastere/
 │
-├── 📄 .cursorrules                    # Reglas de IA y estándares del proyecto
 ├── 📄 .env.example                    # Variables de entorno de ejemplo
-├── 📄 .gitignore                      # Archivos excluidos de Git
+├── 📄 .gitignore                      # Archivos de configuración excluidos de Git
 ├── 🐳 docker-compose.yml             # Configuración de contenedores Docker
 ├── 📄 nest-cli.json                   # Configuración del CLI de NestJS
 ├── 📄 package.json                    # Dependencias y scripts del proyecto
@@ -406,21 +405,18 @@ timeline
 
 ---
 
-## 📐 Principios de desarrollo
+## 📐 Lineamientos de Desarrollo
 
-Este proyecto se rige por las siguientes reglas definidas en el archivo `.cursorrules`:
+El desarrollo del proyecto se rige bajo los siguientes estándares de calidad de software y buenas prácticas de ingeniería:
 
-| # | Regla | Descripción |
-| :---: | :--- | :--- |
-| 1 | **TypeScript estricto** | Todo el código debe usar tipado fuerte, sin excepciones |
-| 2 | **Prohibido `any`** | Cada variable, parámetro y retorno debe tener un tipo explícito |
-| 3 | **Principios SOLID** | Responsabilidad única, abierto/cerrado, sustitución, segregación e inversión |
-| 4 | **TypeORM** | Todas las operaciones de base de datos se realizan a través del ORM |
-| 5 | **Documentación** | Las funciones complejas deben estar documentadas |
-| 6 | **Arquitectura modular** | Cada funcionalidad debe estar encapsulada en su propio módulo NestJS |
-| 7 | **Comentarios detallados** | Cada línea de código debe explicar su propósito y conexiones |
-| 8 | **Modo aprendizaje** | Explicaciones didácticas de conceptos teóricos y sintaxis |
-| 9 | **Contexto Colombia** | Montos en COP, lógica adaptada al mercado colombiano |
+| Estándar | Descripción |
+| :--- | :--- |
+| **TypeScript Estricto** | Todo el código debe implementar tipado estricto para garantizar la robustez y prevenir errores en tiempo de ejecución. |
+| **Prohibición de `any`** | Cada variable, parámetro y tipo de retorno debe estar explícitamente tipado. |
+| **Principios SOLID** | Adherencia a los cinco principios de diseño orientado a objetos para obtener un sistema altamente mantenible y escalable. |
+| **TypeORM** | Todas las interacciones con la base de datos relacional deben realizarse a través del ORM, garantizando abstracción y seguridad. |
+| **Arquitectura Modular** | Organización del código en módulos autónomos y cohesivos dentro de NestJS para facilitar el desarrollo en paralelo. |
+| **Contexto Colombia** | Lógica adaptada al mercado colombiano, utilizando tipos de datos precisos para el manejo de importes en Pesos Colombianos (COP). |
 
 ---
 
