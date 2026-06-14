@@ -8,8 +8,8 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-v5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v16-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![TypeORM](https://img.shields.io/badge/TypeORM-v0.3-FE0803?style=for-the-badge&logo=typeorm&logoColor=white)](https://typeorm.io/)
-[![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docs.docker.com/compose/)
-[![License](https://img.shields.io/badge/Licencia-Privada-orange?style=for-the-badge)](#)
+[![SENA](https://img.shields.io/badge/SENA-ADSO-39A900?style=for-the-badge&logo=sena&logoColor=white)](https://www.sena.edu.co/)
+[![Licencia](https://img.shields.io/badge/Licencia-Privada-orange?style=for-the-badge)](#)
 
 <br/>
 
@@ -23,7 +23,7 @@
 
 ---
 
-**[📖 Documentación](#-documentación)** · **[⚡ Inicio Rápido](#-inicio-rápido)** · **[🏗️ Arquitectura](#️-arquitectura)** · **[📦 Módulos](#-módulos)** · **[🗄️ Base de Datos](#️-modelo-de-base-de-datos)** · **[🛣️ Roadmap](#️-roadmap)**
+**[📖 Descripción](#-descripción-del-proyecto)** · **[⚙️ Configuración](#️-requisitos-y-configuración)** · **[🏗️ Arquitectura](#️-arquitectura)** · **[📦 Módulos](#-módulos)** · **[🗄️ Base de Datos](#️-modelo-de-base-de-datos)** · **[🛣️ Roadmap](#️-roadmap)**
 
 </div>
 
@@ -31,19 +31,19 @@
 
 ## 📋 Descripción del Proyecto
 
-**CRM Lastere** es un sistema backend robusto de gestión de relaciones con clientes (CRM) y administración de pedidos, desarrollado específicamente para empresas colombianas que operan en el sector de comercio electrónico, ventas directas y distribución.
+**CRM Lastere** es un sistema backend robusto de gestión de relaciones con clientes (CRM) y administración de pedidos. Este proyecto está siendo desarrollado de forma conjunta para una **empresa privada** como solución corporativa y, al mismo tiempo, como **proyecto estudiantil y formativo** para la institución **SENA (Servicio Nacional de Aprendizaje)** en el programa de formación de **Tecnología en Análisis y Desarrollo de Software**.
 
-El sistema permite a las empresas centralizar toda la información de sus clientes, realizar un seguimiento detallado del ciclo de vida de cada pedido (desde su creación hasta la entrega), y mantener un registro completo de auditoría que garantiza la trazabilidad y seguridad de todas las operaciones.
+El sistema permite centralizar la información de los clientes, realizar un seguimiento detallado del ciclo de vida de cada pedido (desde su creación hasta la entrega final) y mantener un registro completo de auditoría que garantiza la trazabilidad y la seguridad de todas las operaciones comerciales, aplicando las mejores prácticas y estándares de la industria.
 
-### 🎯 Problema que Resuelve
+### 🎯 Problema que resuelve
 
 | Problema | Solución CRM Lastere |
 | :--- | :--- |
 | Información de clientes dispersa en hojas de cálculo | Base de datos centralizada y relacional con PostgreSQL |
 | Sin trazabilidad en los pedidos | Sistema de estados con historial completo de cada movimiento |
 | Vulnerabilidad ante modificaciones fraudulentas | Módulo de auditoría que registra cada acción con IP, usuario y timestamp |
-| Dificultad para escalar el negocio | Arquitectura modular preparada para microservicios |
-| Manejo incorrecto de montos en pesos colombianos | Tipo `decimal` con precisión financiera (11 dígitos, 2 decimales) |
+| Dificultad para escalar el negocio | Arquitectura modular preparada para una futura transición a microservicios |
+| Manejo incorrecto de montos en pesos colombianos | Tipo `decimal` con precisión financiera (11 dígitos, 2 decimales en COP) |
 
 ---
 
@@ -54,16 +54,16 @@ El sistema permite a las empresas centralizar toda la información de sus client
 <td width="50%">
 
 ### 👥 Gestión de Clientes
-- Registro y administración completa de clientes
+- Registro y administración completos de clientes
 - Historial de pedidos por cliente
 - Datos de contacto y direcciones de envío
-- Segmentación y categorización
+- Segmentación y categorización de clientes
 
 </td>
 <td width="50%">
 
 ### 📦 Gestión de Pedidos
-- Creación y seguimiento de pedidos
+- Creación y seguimiento detallado de pedidos
 - Estados configurables mediante Enums
 - Cálculo de totales con precisión financiera
 - Descripción y notas por pedido
@@ -74,19 +74,19 @@ El sistema permite a las empresas centralizar toda la información de sus client
 <td width="50%">
 
 ### 🔐 Seguridad y Auditoría
-- Registro automático de cada operación
-- Captura de IP y User-Agent
-- Historial de cambios con estado anterior/nuevo
-- Detección de modificaciones sospechosas
+- Registro automático de cada operación en base de datos
+- Captura de dirección IP y User-Agent
+- Historial de cambios con estado anterior y nuevo
+- Detección preventiva de modificaciones sospechosas
 
 </td>
 <td width="50%">
 
 ### 🛠️ Arquitectura Profesional
-- Principios SOLID aplicados
-- TypeScript estricto (sin `any`)
+- Principios SOLID aplicados rigurosamente
+- TypeScript estricto (sin uso de `any`)
 - Arquitectura modular y escalable
-- Documentación detallada en cada línea
+- Documentación y comentarios explicativos
 
 </td>
 </tr>
@@ -160,7 +160,7 @@ graph TB
     style Data fill:#16213e,stroke:#0f3460,color:#e0e0e0
 ```
 
-### Flujo de una Petición HTTP
+### Flujo de una petición HTTP
 
 ```mermaid
 sequenceDiagram
@@ -194,7 +194,7 @@ sequenceDiagram
 
 ## 📦 Módulos
 
-### Estructura del Proyecto
+### Estructura del proyecto
 
 ```
 crm-lastere/
@@ -242,18 +242,18 @@ crm-lastere/
 
 El módulo de pedidos es el corazón del sistema. Gestiona el ciclo de vida completo de cada pedido.
 
-#### Estados del Pedido
+#### Estados del pedido
 
 ```mermaid
 stateDiagram-v2
-    [*] --> PENDIENTE: Pedido Creado
-    PENDIENTE --> GUIA_GENERADA: Se genera guía de envío
-    GUIA_GENERADA --> ENVIADO: Transportista recoge el paquete
-    ENVIADO --> OFICINA: Llega a oficina de destino
+    [*] --> PENDIENTE: Pedido creado
+    PENDIENTE --> GUIA_GENERADA: Se genera la guía de envío
+    GUIA_GENERADA --> ENVIADO: El transportista recoge el paquete
+    ENVIADO --> OFICINA: Llega a la oficina de destino
     OFICINA --> [*]: Entregado al cliente ✅
 
-    PENDIENTE --> CANCELADO: Cliente o admin cancela
-    GUIA_GENERADA --> CANCELADO: Cancelación antes de envío
+    PENDIENTE --> CANCELADO: El cliente o administrador cancela
+    GUIA_GENERADA --> CANCELADO: Cancelación antes del envío
     
     CANCELADO --> [*]: Pedido finalizado ❌
 
@@ -268,7 +268,7 @@ stateDiagram-v2
     end note
 ```
 
-#### Entidad Pedido - Campos
+#### Campos de la entidad Pedido
 
 | Campo | Tipo (PostgreSQL) | Tipo (TypeScript) | Descripción |
 | :--- | :---: | :---: | :--- |
@@ -277,124 +277,92 @@ stateDiagram-v2
 | `total` | `DECIMAL(11,2)` | `number` | Monto total en COP con precisión financiera |
 | `descripcion` | `TEXT` | `string \| null` | Notas u observaciones opcionales del pedido |
 | `fecha_creacion` | `TIMESTAMP` | `Date` | Fecha y hora de creación (automática) |
-| `fecha_actualizacion` | `TIMESTAMP` | `Date` | Última fecha de modificación (automática) |
+| `fecha_actualizacion` | `TIMESTAMP` | `Date` | Fecha y hora de la última modificación (automática) |
 
 > 💡 **Nota sobre la moneda:** Los montos se manejan en **Pesos Colombianos (COP)** con precisión `DECIMAL(11,2)`, soportando valores de hasta **$999,999,999.99 COP**.
 
 ---
 
-## 🗄️ Modelo de Base de Datos
+## 🗄️ Modelo de base de datos
 
 ```mermaid
 erDiagram
-    CLIENTES {
-        uuid id PK "Clave primaria UUID"
-        varchar nombre "Nombre completo"
-        varchar email "Correo electrónico"
-        varchar telefono "Teléfono de contacto"
-        varchar direccion "Dirección de envío"
-        varchar ciudad "Ciudad"
-        varchar departamento "Departamento"
-        timestamp fecha_creacion "Fecha de registro"
-        timestamp fecha_actualizacion "Última actualización"
-    }
+      CLIENTES {
+          uuid id PK "Clave primaria UUID"
+          varchar nombre "Nombre completo"
+          varchar email "Correo electrónico"
+          varchar telefono "Teléfono de contacto"
+          varchar direccion "Dirección de envío"
+          varchar ciudad "Ciudad"
+          varchar departamento "Departamento"
+          timestamp fecha_creacion "Fecha de registro"
+          timestamp fecha_actualizacion "Última actualización"
+      }
 
-    PEDIDOS {
-        uuid id PK "Clave primaria UUID"
-        enum estado "PENDIENTE | GUIA_GENERADA | ENVIADO | OFICINA | CANCELADO"
-        decimal total "Monto total en COP"
-        text descripcion "Notas opcionales"
-        timestamp fecha_creacion "Fecha del pedido"
-        timestamp fecha_actualizacion "Última modificación"
-        uuid cliente_id FK "Relación con cliente"
-    }
+      PEDIDOS {
+          uuid id PK "Clave primaria UUID"
+          enum estado "PENDIENTE | GUIA_GENERADA | ENVIADO | OFICINA | CANCELADO"
+          decimal total "Monto total en COP"
+          text descripcion "Notas opcionales"
+          timestamp fecha_creacion "Fecha del pedido"
+          timestamp fecha_actualizacion "Última modificación"
+          uuid cliente_id FK "Relación con cliente"
+      }
 
-    PEDIDO_HISTORIAL {
-        uuid id PK "Clave primaria UUID"
-        uuid pedido_id FK "Pedido afectado"
-        varchar usuario_id "Quién realizó la acción"
-        varchar accion "Tipo de acción realizada"
-        varchar estado_anterior "Estado antes del cambio"
-        varchar estado_nuevo "Estado después del cambio"
-        text motivo "Razón del cambio"
-        varchar ip_address "IP del solicitante"
-        jsonb cambios "Snapshot de datos modificados"
-        timestamp fecha "Momento exacto de la acción"
-    }
+      PEDIDO_HISTORIAL {
+          uuid id PK "Clave primaria UUID"
+          uuid pedido_id FK "Pedido afectado"
+          varchar usuario_id "Quién realizó la acción"
+          varchar accion "Tipo de acción realizada"
+          varchar estado_anterior "Estado antes del cambio"
+          varchar estado_nuevo "Estado después del cambio"
+          text motivo "Razón del cambio"
+          varchar ip_address "IP del solicitante"
+          jsonb cambios "Snapshot de datos modificados"
+          timestamp fecha "Momento exacto de la acción"
+      }
 
-    CLIENTES ||--o{ PEDIDOS : "tiene muchos"
-    PEDIDOS ||--o{ PEDIDO_HISTORIAL : "registra historial"
+      CLIENTES ||--o{ PEDIDOS : "tiene muchos"
+      PEDIDOS ||--o{ PEDIDO_HISTORIAL : "registra historial"
 ```
 
 ---
 
-## ⚡ Inicio Rápido
+## ⚙️ Requisitos y Configuración
+
+Para la ejecución y despliegue del proyecto en entornos de desarrollo, se requiere contar con las herramientas adecuadas y la respectiva configuración de variables de entorno.
 
 ### Prerrequisitos
 
-Asegúrate de tener instaladas las siguientes herramientas:
+Asegúrese de tener instaladas las siguientes tecnologías:
 
-| Herramienta | Versión Mínima | Instalación |
+| Herramienta | Versión Mínima | Propósito |
 | :--- | :---: | :--- |
-| **Node.js** | v18+ | [nodejs.org](https://nodejs.org/) |
-| **npm** | v9+ | Incluido con Node.js |
-| **Docker** | v24+ | [docker.com](https://www.docker.com/) |
-| **Docker Compose** | v2+ | Incluido con Docker Desktop |
-| **Git** | v2.40+ | [git-scm.com](https://git-scm.com/) |
+| **Node.js** | v18+ | Entorno de ejecución para el backend |
+| **npm** | v9+ | Gestor de paquetes de dependencias |
+| **Docker** | v24+ | Gestión de contenedores locales |
+| **Docker Compose** | v2+ | Orquestación de servicios locales |
 
-### 1. Clonar el Repositorio
+### Configuración del Entorno
 
-```bash
-git clone https://github.com/sernapereira/crm-lastere.git
-cd crm-lastere
-```
-
-### 2. Configurar Variables de Entorno
-
-```bash
-# Copiar el archivo de ejemplo
-cp .env.example .env
-```
-
-Edita el archivo `.env` con tus credenciales de base de datos:
-
-```env
-DATABASE_URL=postgresql://usuario:contraseña@localhost:5432/crm_lastere
-```
-
-### 3. Levantar la Base de Datos con Docker
-
-```bash
-docker compose up -d
-```
-
-### 4. Instalar Dependencias
-
-```bash
-npm install
-```
-
-### 5. Ejecutar en Modo Desarrollo
-
-```bash
-npm run start:dev
-```
-
-La API estará disponible en: **`http://localhost:3000`**
+1. **Variables de Entorno**: Configure el archivo local `.env` a partir de la plantilla provista en `.env.example`. Asegúrese de definir las variables correspondientes a la conexión de la base de datos sin incluir credenciales expuestas en el código fuente.
+2. **Servicios de Base de Datos**: Levante el contenedor de la base de datos relacional configurado en el archivo de orquestación de servicios locales.
+3. **Instalación de Dependencias**: Instale los paquetes requeridos especificados en la configuración del proyecto utilizando el gestor de paquetes de Node.js.
+4. **Ejecución del Servidor**: Inicie el servidor de desarrollo utilizando el script de inicio correspondiente definido en el proyecto.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Stack tecnológico
 
 <div align="center">
 
 | Capa | Tecnología | Propósito |
 | :---: | :---: | :--- |
-| 🔷 **Runtime** | Node.js v18+ | Entorno de ejecución JavaScript del lado del servidor |
+| 🔷 **Runtime** | Node.js v18+ | Entorno de ejecución de JavaScript del lado del servidor |
 | 🏗️ **Framework** | NestJS v10 | Framework empresarial para aplicaciones escalables |
-| 📝 **Lenguaje** | TypeScript v5 | Tipado estricto para código seguro y mantenible |
-| 🗄️ **Base de Datos** | PostgreSQL v16 | Motor relacional robusto con soporte para ENUM y JSONB |
-| 🔗 **ORM** | TypeORM v0.3 | Mapeo Objeto-Relacional con decoradores y migraciones |
+| 📝 **Lenguaje** | TypeScript v5 | Tipado estricto para un código seguro y mantenible |
+| 🗄️ **Base de Datos** | PostgreSQL v16 | Motor relacional robusto con soporte para tipos ENUM y JSONB |
+| 🔗 **ORM** | TypeORM v0.3 | Mapeo objeto-relacional con decoradores y migraciones |
 | 🐳 **Contenedores** | Docker Compose | Infraestructura reproducible y portable |
 | ✅ **Validación** | class-validator | Validación de datos de entrada con decoradores |
 | 🔄 **Transformación** | class-transformer | Transformación y serialización de objetos |
@@ -412,63 +380,59 @@ timeline
     title Plan de Desarrollo CRM Lastere
     
     section Fase 1 - Fundamentos
-        Estructura del Proyecto     : ✅ Completado
-        Entidad Pedido + Enum       : ✅ Completado
+        Estructura del proyecto     : ✅ Completado
+        Entidad Pedido y enums      : ✅ Completado
         Entidad Cliente             : 🔄 En progreso
-        Relaciones entre Entidades  : ⏳ Pendiente
+        Relaciones entre entidades  : ⏳ Pendiente
     
     section Fase 2 - API REST
-        DTOs y Validaciones     : ⏳ Pendiente
+        DTOs y validaciones     : ⏳ Pendiente
         Servicios CRUD          : ⏳ Pendiente
         Controladores REST      : ⏳ Pendiente
         Documentación Swagger   : ⏳ Pendiente
     
     section Fase 3 - Seguridad
-        Módulo de Auditoría         : ⏳ Pendiente
-        Interceptores Globales      : ⏳ Pendiente
+        Módulo de auditoría         : ⏳ Pendiente
+        Interceptores globales      : ⏳ Pendiente
         Autenticación JWT           : ⏳ Pendiente
-        Guards de Autorización      : ⏳ Pendiente
+        Guards de autorización      : ⏳ Pendiente
     
     section Fase 4 - Escalabilidad
-        Sistema de Eventos Internos : ⏳ Pendiente
+        Sistema de eventos internos : ⏳ Pendiente
         Notificaciones              : ⏳ Pendiente
         Caché con Redis             : ⏳ Pendiente
-        Preparación Microservicios  : ⏳ Pendiente
+        Preparación para microservicios : ⏳ Pendiente
 ```
 
 ---
 
-## 📐 Principios de Desarrollo
+## 📐 Principios de desarrollo
 
 Este proyecto se rige por las siguientes reglas definidas en el archivo `.cursorrules`:
 
 | # | Regla | Descripción |
 | :---: | :--- | :--- |
-| 1 | **TypeScript Estricto** | Todo el código debe usar tipado fuerte, sin excepciones |
+| 1 | **TypeScript estricto** | Todo el código debe usar tipado fuerte, sin excepciones |
 | 2 | **Prohibido `any`** | Cada variable, parámetro y retorno debe tener un tipo explícito |
 | 3 | **Principios SOLID** | Responsabilidad única, abierto/cerrado, sustitución, segregación e inversión |
 | 4 | **TypeORM** | Todas las operaciones de base de datos se realizan a través del ORM |
 | 5 | **Documentación** | Las funciones complejas deben estar documentadas |
-| 6 | **Arquitectura Modular** | Cada funcionalidad encapsulada en su propio módulo NestJS |
-| 7 | **Comentarios Detallados** | Cada línea de código debe explicar su propósito y conexiones |
-| 8 | **Modo Aprendizaje** | Explicaciones didácticas de conceptos teóricos y sintaxis |
+| 6 | **Arquitectura modular** | Cada funcionalidad debe estar encapsulada en su propio módulo NestJS |
+| 7 | **Comentarios detallados** | Cada línea de código debe explicar su propósito y conexiones |
+| 8 | **Modo aprendizaje** | Explicaciones didácticas de conceptos teóricos y sintaxis |
 | 9 | **Contexto Colombia** | Montos en COP, lógica adaptada al mercado colombiano |
 
 ---
 
-## 🤝 Contribución
+## 🤝 Sugerencias y Retroalimentación
 
-Este es un proyecto privado en desarrollo activo. Si deseas contribuir:
+Este es un proyecto cerrado y de propiedad privada, diseñado con fines corporativos y como proyecto de aprendizaje académico. Por este motivo, **no se aceptan contribuciones directas de código externas ni solicitudes de extracción (Pull Requests)**.
 
-1. Crea un fork del repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Realiza commits atómicos con mensajes descriptivos (`git commit -m "feat: descripción"`)
-4. Haz push a tu rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
+Si desea realizar comentarios, sugerir mejoras, reportar problemas o realizar consultas sobre el diseño del sistema, puede hacerlo exclusivamente a través de la sección de **comentarios, discusiones o incidencias (Issues)** habilitada en el repositorio oficial.
 
-### Convención de Commits
+### Convención de commits
 
-Este proyecto sigue la convención [Conventional Commits](https://www.conventionalcommits.org/):
+Para el desarrollo interno del equipo de trabajo, se sigue estrictamente la convención de [Conventional Commits](https://www.conventionalcommits.org/):
 
 | Prefijo | Uso |
 | :--- | :--- |
