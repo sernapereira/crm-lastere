@@ -4,11 +4,12 @@
 
 ### Sistema de Gestión de Relaciones con Clientes y Pedidos
 
+[![Estado](https://img.shields.io/badge/Estado-En_Diseño-yellow?style=for-the-badge)](#-estado-actual-del-proyecto)
 [![NestJS](https://img.shields.io/badge/NestJS-v10-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-v5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v16-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v15-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
-[![SENA](https://img.shields.io/badge/SENA-ADSO-39A900?style=for-the-badge&logo=sena&logoColor=white)](https://www.sena.edu.co/)
+[![SENA](https://img.shields.io/badge/SENA-ADSO-39A900?style=for-the-badge)](https://www.sena.edu.co/)
 [![Licencia](https://img.shields.io/badge/Licencia-Privada-orange?style=for-the-badge)](#)
 
 <br/>
@@ -23,7 +24,7 @@
 
 ---
 
-**[📖 Descripción](#-descripción-del-proyecto)** · **[⚙️ Configuración](#️-requisitos-y-configuración)** · **[🏗️ Arquitectura](#️-arquitectura)** · **[📦 Módulos](#-módulos)** · **[🗄️ Base de Datos](#️-modelo-de-base-de-datos)** · **[🛣️ Roadmap](#️-roadmap)**
+**[📋 Descripción](#-descripción-del-proyecto)** · **[📊 Estado](#-estado-actual-del-proyecto)** · **[✅ Avances](#-avances-recientes)** · **[🔮 Futuro](#-futuras-actualizaciones)** · **[🏗️ Arquitectura](#️-arquitectura)** · **[⚙️ Quick Start](#️-quick-start)** · **[🗄️ Base de Datos](#️-modelo-de-base-de-datos)**
 
 </div>
 
@@ -33,7 +34,7 @@
 
 **CRM Lastere** es un sistema backend robusto de gestión de relaciones con clientes (CRM) y administración de pedidos. Este proyecto está siendo desarrollado de forma conjunta para una **empresa privada** como solución corporativa y, al mismo tiempo, como **proyecto estudiantil y formativo** para la institución **SENA (Servicio Nacional de Aprendizaje)** en el programa de formación de **Tecnología en Análisis y Desarrollo de Software**.
 
-El sistema permite centralizar la información de los clientes, realizar un seguimiento detallado del ciclo de vida de cada pedido (desde su creación hasta la entrega final) y mantener un registro completo de auditoría que garantiza la trazabilidad y la seguridad de todas las operaciones comerciales, aplicando las mejores prácticas y estándares de la industria.
+El sistema permite centralizar la información de los clientes, realizar un seguimiento detallado del ciclo de vida de cada pedido (desde su creación hasta la entrega final) y mantener un registro completo de auditoría que garantiza la trazabilidad y la seguridad de todas las operaciones comerciales.
 
 ### 🎯 Problema que resuelve
 
@@ -44,6 +45,96 @@ El sistema permite centralizar la información de los clientes, realizar un segu
 | Vulnerabilidad ante modificaciones fraudulentas | Módulo de auditoría que registra cada acción con IP, usuario y timestamp |
 | Dificultad para escalar el negocio | Arquitectura modular preparada para una futura transición a microservicios |
 | Manejo incorrecto de montos en pesos colombianos | Tipo `decimal` con precisión financiera (11 dígitos, 2 decimales en COP) |
+
+---
+
+## 📊 Estado Actual del Proyecto
+
+<table>
+<tr>
+<td width="60%">
+
+> **Fase actual:** 🔶 Diseño y Documentación
+>
+> El proyecto se encuentra en su **etapa de ideación y diseño arquitectónico**. La estructura base del proyecto ha sido inicializada y se está documentando de forma detallada la arquitectura, los modelos de datos y el roadmap antes de comenzar la implementación del código funcional.
+
+</td>
+<td width="40%" align="center">
+
+```
+Progreso General
+██░░░░░░░░░░░░░░░░░░  10%
+
+Fase 1 — Fundamentos
+████░░░░░░░░░░░░░░░░  20%
+
+Fase 2 — API REST
+░░░░░░░░░░░░░░░░░░░░   0%
+
+Fase 3 — Seguridad
+░░░░░░░░░░░░░░░░░░░░   0%
+```
+
+</td>
+</tr>
+</table>
+
+---
+
+## ✅ Avances Recientes
+
+Logros completados hasta la fecha:
+
+- [x] **Inicialización del proyecto** — Proyecto NestJS creado con TypeScript estricto
+- [x] **Infraestructura Docker** — `docker-compose.yml` configurado con PostgreSQL 15 y pgAdmin
+- [x] **Estructura modular de carpetas** — Módulos `clientes`, `pedidos` y `common/auditoria` definidos
+- [x] **Configuración de entorno** — Archivo `.env.example` con plantilla de variables
+- [x] **Documentación arquitectónica** — Diagramas de arquitectura, ER y flujos documentados
+- [x] **Estándares de desarrollo** — Convención de commits, ESLint y Prettier configurados
+
+---
+
+## 🔄 En Curso
+
+Lo que está activamente en desarrollo:
+
+- [ ] 🔧 **Configuración de Prisma ORM** — Instalación, inicialización y conexión a PostgreSQL
+- [ ] 📐 **Schema Prisma: Modelo Pedido** — Definición de la entidad con enums de estado
+- [ ] 📐 **Schema Prisma: Modelo Cliente** — Definición de campos y validaciones
+- [ ] 🔗 **Relaciones entre modelos** — Configuración de relaciones y primera migración
+
+---
+
+## 🔮 Futuras Actualizaciones
+
+Roadmap organizado por fases de desarrollo:
+
+### Fase 2 — API REST `Próximamente`
+
+| Feature | Descripción | Prioridad |
+| :--- | :--- | :---: |
+| DTOs y Validaciones | Objetos de transferencia con `class-validator` | 🔴 Alta |
+| Servicios CRUD | Lógica de negocio para clientes y pedidos | 🔴 Alta |
+| Controladores REST | Endpoints HTTP para todas las operaciones | 🔴 Alta |
+| Documentación Swagger | API autodocumentada con OpenAPI | 🟡 Media |
+
+### Fase 3 — Seguridad `Planificada`
+
+| Feature | Descripción | Prioridad |
+| :--- | :--- | :---: |
+| Módulo de Auditoría | Registro automático de cada operación | 🔴 Alta |
+| Interceptores Globales | Captura de IP y User-Agent | 🟡 Media |
+| Autenticación JWT | Login seguro con tokens | 🔴 Alta |
+| Guards de Autorización | Control de acceso basado en roles | 🟡 Media |
+
+### Fase 4 — Escalabilidad `Futuro`
+
+| Feature | Descripción | Prioridad |
+| :--- | :--- | :---: |
+| Sistema de Eventos | Comunicación interna entre módulos | 🟡 Media |
+| Notificaciones | Alertas por cambios de estado | 🟢 Baja |
+| Caché con Redis | Optimización de consultas frecuentes | 🟢 Baja |
+| Microservicios | Separación de módulos independientes | 🟢 Baja |
 
 ---
 
@@ -96,7 +187,7 @@ El sistema permite centralizar la información de los clientes, realizar un segu
 
 ## 🏗️ Arquitectura
 
-El proyecto sigue una **arquitectura modular por capas**, donde cada módulo encapsula su propia lógica de negocio, entidades, DTOs y controladores. Esta estructura permite escalar el sistema de forma independiente y facilita la transición futura a microservicios.
+El proyecto sigue una **arquitectura modular por capas**, donde cada módulo encapsula su propia lógica de negocio, DTOs y controladores. Esta estructura permite escalar el sistema de forma independiente y facilita la transición futura a microservicios.
 
 ```mermaid
 graph TB
@@ -118,18 +209,15 @@ graph TB
         subgraph ModClientes["👥 Módulo Clientes"]
             CC["Controller"]
             CS["Service"]
-            CE["Entity"]
         end
         
         subgraph ModPedidos["📦 Módulo Pedidos"]
             PC["Controller"]
             PS["Service"]
-            PE["Entity"]
         end
 
         subgraph ModAuditoria["🔐 Módulo Auditoría"]
             AS["Service"]
-            AE["Entity"]
             SUB["Subscribers"]
         end
     end
@@ -160,58 +248,30 @@ graph TB
     style Data fill:#16213e,stroke:#0f3460,color:#e0e0e0
 ```
 
-### Flujo de una petición HTTP
+> 📖 **Documentación técnica ampliada:** Para diagramas detallados de flujos HTTP, máquina de estados de pedidos y especificaciones de entidades, consulte [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
-```mermaid
-sequenceDiagram
-    actor U as 👤 Usuario
-    participant C as 🔷 Controller
-    participant P as 🔌 Pipe (Validación)
-    participant S as ⚙️ Service
-    participant R as 🗄️ Repository
-    participant DB as 🐘 PostgreSQL
-    participant A as 🔐 Auditoría
-
-    U->>C: POST /pedidos (JSON Body)
-    C->>P: Validar DTO
-    
-    alt ❌ Datos Inválidos
-        P-->>U: 400 Bad Request + errores detallados
-    end
-    
-    P->>S: DTO validado
-    S->>R: Crear entidad Pedido
-    R->>DB: INSERT INTO pedidos
-    DB-->>R: Pedido creado (UUID generado)
-    R-->>S: Entidad Pedido
-    S->>A: Emitir evento "PEDIDO_CREADO"
-    A->>DB: INSERT INTO audit_log
-    S-->>C: Pedido creado
-    C-->>U: 201 Created + Pedido JSON
-```
-
----
-
-## 📦 Módulos
-
-### Estructura del proyecto
+### Estructura del Proyecto
 
 ```
 crm-lastere/
 │
 ├── 📄 .env.example                    # Variables de entorno de ejemplo
-├── 📄 .gitignore                      # Archivos de configuración excluidos de Git
-├── 🐳 docker-compose.yml             # Configuración de contenedores Docker
+├── 📄 .gitignore                      # Archivos excluidos de Git
+├── 📄 CHANGELOG.md                    # Historial de cambios del proyecto
+├── 🐳 docker-compose.yml             # PostgreSQL 15 + pgAdmin
 ├── 📄 nest-cli.json                   # Configuración del CLI de NestJS
-├── 📄 package.json                    # Dependencias y scripts del proyecto
+├── 📄 package.json                    # Dependencias y scripts
 ├── 📄 tsconfig.json                   # Configuración de TypeScript
+│
+├── 📁 docs/
+│   └── 📄 ARCHITECTURE.md            # Diagramas y documentación técnica
 │
 └── 📁 src/
     ├── 📄 main.ts                     # Punto de entrada de la aplicación
-    ├── 📄 app.module.ts               # Módulo raíz que orquesta todo el sistema
+    ├── 📄 app.module.ts               # Módulo raíz
     │
     ├── 📁 common/                     # Recursos compartidos globalmente
-    │   └── 📁 auditoria/             # 🔐 Módulo de Auditoría (Fase 2)
+    │   └── 📁 auditoria/             # 🔐 Módulo de Auditoría (Fase 3)
     │
     ├── 📁 config/                     # Configuración y validación de entorno
     │   └── 📄 env.validation.ts       # Validación de variables de entorno
@@ -237,52 +297,7 @@ crm-lastere/
 
 ---
 
-### 📦 Módulo de Pedidos
-
-El módulo de pedidos es el corazón del sistema. Gestiona el ciclo de vida completo de cada pedido.
-
-#### Estados del pedido
-
-```mermaid
-stateDiagram-v2
-    [*] --> PENDIENTE: Pedido creado
-    PENDIENTE --> GUIA_GENERADA: Se genera la guía de envío
-    GUIA_GENERADA --> ENVIADO: El transportista recoge el paquete
-    ENVIADO --> OFICINA: Llega a la oficina de destino
-    OFICINA --> [*]: Entregado al cliente ✅
-
-    PENDIENTE --> CANCELADO: El cliente o administrador cancela
-    GUIA_GENERADA --> CANCELADO: Cancelación antes del envío
-    
-    CANCELADO --> [*]: Pedido finalizado ❌
-
-    note right of PENDIENTE
-        Estado inicial por defecto
-        al crear un pedido
-    end note
-
-    note right of CANCELADO
-        Se registra el motivo
-        en el historial de auditoría
-    end note
-```
-
-#### Campos de la entidad Pedido
-
-| Campo | Tipo (PostgreSQL) | Tipo (TypeScript) | Descripción |
-| :--- | :---: | :---: | :--- |
-| `id` | `UUID` | `string` | Identificador único generado automáticamente (Prisma `@default(uuid())`) |
-| `estado` | `ENUM` | `EstadoPedido` | Estado actual del pedido (Prisma `enum EstadoPedido`) |
-| `total` | `DECIMAL(11,2)` | `Decimal` | Monto total en COP con precisión financiera (Prisma `@db.Decimal(11,2)`) |
-| `descripcion` | `TEXT` | `string \| null` | Notas u observaciones opcionales del pedido |
-| `fecha_creacion` | `TIMESTAMP` | `DateTime` | Fecha y hora de creación (Prisma `@default(now())`) |
-| `fecha_actualizacion` | `TIMESTAMP` | `DateTime` | Fecha y hora de la última modificación (Prisma `@updatedAt`) |
-
-> 💡 **Nota sobre la moneda:** Los montos se manejan en **Pesos Colombianos (COP)** con precisión `DECIMAL(11,2)`, soportando valores de hasta **$999,999,999.99 COP**.
-
----
-
-## 🗄️ Modelo de base de datos
+## 🗄️ Modelo de Base de Datos
 
 ```mermaid
 erDiagram
@@ -327,13 +342,9 @@ erDiagram
 
 ---
 
-## ⚙️ Requisitos y Configuración
-
-Para la ejecución y despliegue del proyecto en entornos de desarrollo, se requiere contar con las herramientas adecuadas y la respectiva configuración de variables de entorno.
+## ⚙️ Quick Start
 
 ### Prerrequisitos
-
-Asegúrese de tener instaladas las siguientes tecnologías:
 
 | Herramienta | Versión Mínima | Propósito |
 | :--- | :---: | :--- |
@@ -342,16 +353,46 @@ Asegúrese de tener instaladas las siguientes tecnologías:
 | **Docker** | v24+ | Gestión de contenedores locales |
 | **Docker Compose** | v2+ | Orquestación de servicios locales |
 
-### Configuración del Entorno
+### Instalación
 
-1. **Variables de Entorno**: Configure el archivo local `.env` a partir de la plantilla provista en `.env.example`. Asegúrese de definir las variables correspondientes a la conexión de la base de datos sin incluir credenciales expuestas en el código fuente.
-2. **Servicios de Base de Datos**: Levante el contenedor de la base de datos relacional configurado en el archivo de orquestación de servicios locales.
-3. **Instalación de Dependencias**: Instale los paquetes requeridos especificados en la configuración del proyecto utilizando el gestor de paquetes de Node.js.
-4. **Ejecución del Servidor**: Inicie el servidor de desarrollo utilizando el script de inicio correspondiente definido en el proyecto.
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/sernapereira/crm-lastere.git
+cd crm-lastere
+
+# 2. Configurar variables de entorno
+cp .env.example .env
+
+# 3. Levantar la base de datos y pgAdmin
+docker-compose up -d
+
+# 4. Instalar dependencias
+npm install
+
+# 5. Inicializar Prisma (cuando el schema esté listo)
+npx prisma generate
+npx prisma migrate dev
+
+# 6. Iniciar servidor de desarrollo
+npm run start:dev
+```
+
+> 💡 **pgAdmin** estará disponible en `http://localhost:5050` con las credenciales del `.env`.
+
+### Variables de Entorno
+
+| Variable | Descripción | Valor por defecto |
+| :--- | :--- | :---: |
+| `POSTGRES_USER` | Usuario de PostgreSQL | `postgres` |
+| `POSTGRES_PASSWORD` | Contraseña de PostgreSQL | `postgres` |
+| `POSTGRES_DB` | Nombre de la base de datos | `crm_lastere` |
+| `DB_PORT` | Puerto expuesto de PostgreSQL | `5433` |
+| `PORT` | Puerto del servidor NestJS | `3000` |
+| `DATABASE_URL` | URL de conexión completa | `postgresql://...` |
 
 ---
 
-## 🛠️ Stack tecnológico
+## 🛠️ Stack Tecnológico
 
 <div align="center">
 
@@ -360,8 +401,8 @@ Asegúrese de tener instaladas las siguientes tecnologías:
 | 🔷 **Runtime** | Node.js v18+ | Entorno de ejecución de JavaScript del lado del servidor |
 | 🏗️ **Framework** | NestJS v10 | Framework empresarial para aplicaciones escalables |
 | 📝 **Lenguaje** | TypeScript v5 | Tipado estricto para un código seguro y mantenible |
-| 🗄️ **Base de Datos** | PostgreSQL v16 | Motor relacional robusto con soporte para tipos ENUM y JSONB |
-| 🔗 **ORM** | **Prisma** | ORM moderno con schema declarativo, type-safety total y migraciones automáticas |
+| 🗄️ **Base de Datos** | PostgreSQL v15 | Motor relacional robusto con soporte para tipos ENUM y JSONB |
+| 🔗 **ORM** | Prisma | ORM moderno con schema declarativo, type-safety total y migraciones automáticas |
 | 🐳 **Contenedores** | Docker Compose | Infraestructura reproducible y portable |
 | ✅ **Validación** | class-validator | Validación de datos de entrada con decoradores |
 | 🔄 **Transformación** | class-transformer | Transformación y serialización de objetos |
@@ -370,45 +411,7 @@ Asegúrese de tener instaladas las siguientes tecnologías:
 
 ---
 
-## 🛣️ Roadmap
-
-El desarrollo del proyecto está organizado en fases incrementales:
-
-```mermaid
-timeline
-    title Plan de Desarrollo CRM Lastere
-    
-    section Fase 1 - Fundamentos
-        Estructura de carpetas y archivos vacíos  : ✅ Completado
-        Instalación y configuración de Prisma     : ⏳ Pendiente
-        Schema Prisma — Modelo Pedido y enums     : ⏳ Pendiente
-        Schema Prisma — Modelo Cliente            : ⏳ Pendiente
-        Relaciones entre modelos y migración      : ⏳ Pendiente
-    
-    section Fase 2 - API REST
-        DTOs y validaciones     : ⏳ Pendiente
-        Servicios CRUD          : ⏳ Pendiente
-        Controladores REST      : ⏳ Pendiente
-        Documentación Swagger   : ⏳ Pendiente
-    
-    section Fase 3 - Seguridad
-        Módulo de auditoría         : ⏳ Pendiente
-        Interceptores globales      : ⏳ Pendiente
-        Autenticación JWT           : ⏳ Pendiente
-        Guards de autorización      : ⏳ Pendiente
-    
-    section Fase 4 - Escalabilidad
-        Sistema de eventos internos : ⏳ Pendiente
-        Notificaciones              : ⏳ Pendiente
-        Caché con Redis             : ⏳ Pendiente
-        Preparación para microservicios : ⏳ Pendiente
-```
-
----
-
 ## 📐 Lineamientos de Desarrollo
-
-El desarrollo del proyecto se rige bajo los siguientes estándares de calidad de software y buenas prácticas de ingeniería:
 
 | Estándar | Descripción |
 | :--- | :--- |
@@ -425,17 +428,17 @@ El desarrollo del proyecto se rige bajo los siguientes estándares de calidad de
 
 Este es un proyecto cerrado y de propiedad privada, diseñado con fines corporativos y como proyecto de aprendizaje académico. Por este motivo, **no se aceptan contribuciones directas de código externas ni solicitudes de extracción (Pull Requests)**.
 
-Si desea realizar comentarios, sugerir mejoras, reportar problemas o realizar consultas sobre el diseño del sistema, puede hacerlo exclusivamente a través de la sección de **comentarios, discusiones o incidencias (Issues)** habilitada en el repositorio oficial.
+Si desea realizar comentarios, sugerir mejoras o reportar problemas, puede hacerlo a través de la sección de **Issues** del repositorio.
 
-### Convención de commits
+### Convención de Commits
 
-Para el desarrollo interno del equipo de trabajo, se sigue estrictamente la convención de [Conventional Commits](https://www.conventionalcommits.org/):
+Para el desarrollo interno, se sigue estrictamente la convención de [Conventional Commits](https://www.conventionalcommits.org/):
 
 | Prefijo | Uso |
 | :--- | :--- |
 | `feat:` | Nueva funcionalidad |
 | `fix:` | Corrección de errores |
-| `chore:` | Tareas de mantenimiento (configuración, dependencias) |
+| `chore:` | Tareas de mantenimiento |
 | `docs:` | Cambios en documentación |
 | `refactor:` | Refactorización sin cambio de funcionalidad |
 | `test:` | Adición o modificación de pruebas |
@@ -449,5 +452,6 @@ Para el desarrollo interno del equipo de trabajo, se sigue estrictamente la conv
 **CRM Lastere** © 2026 · Todos los derechos reservados
 
 [![GitHub](https://img.shields.io/badge/GitHub-sernapereira-181717?style=for-the-badge&logo=github)](https://github.com/sernapereira/crm-lastere)
+[![Changelog](https://img.shields.io/badge/Changelog-ver_cambios-blue?style=for-the-badge)](CHANGELOG.md)
 
 </div>
