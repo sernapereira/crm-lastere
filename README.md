@@ -24,7 +24,7 @@
 
 ---
 
-**[📋 Descripción](#-descripción-del-proyecto)** · **[📊 Estado](#-estado-actual-del-proyecto)** · **[✅ Avances](#-avances-recientes)** · **[🔮 Futuro](#-futuras-actualizaciones)** · **[🏗️ Arquitectura](#️-arquitectura)** · **[⚙️ Quick Start](#️-quick-start)** · **[🗄️ Base de Datos](#️-modelo-de-base-de-datos)**
+**[📋 Descripción](#-descripción-del-proyecto)** · **[📊 Estado](#-estado-actual-del-proyecto)** · **[✅ Avances](#-avances-recientes)** · **[🔮 Futuro](#-futuras-actualizaciones)** · **[🏗️ Arquitectura](#️-arquitectura)** · **[⚙️ Quick Start](#️-quick-start)**
 
 </div>
 
@@ -249,97 +249,6 @@ graph TB
 ```
 
 > 📖 **Documentación técnica ampliada:** Para diagramas detallados de flujos HTTP, máquina de estados de pedidos y especificaciones de entidades, consulte [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
-
-### Estructura del Proyecto
-
-```
-crm-lastere/
-│
-├── 📄 .env.example                    # Variables de entorno de ejemplo
-├── 📄 .gitignore                      # Archivos excluidos de Git
-├── 📄 CHANGELOG.md                    # Historial de cambios del proyecto
-├── 🐳 docker-compose.yml             # PostgreSQL 15 + pgAdmin
-├── 📄 nest-cli.json                   # Configuración del CLI de NestJS
-├── 📄 package.json                    # Dependencias y scripts
-├── 📄 tsconfig.json                   # Configuración de TypeScript
-│
-├── 📁 docs/
-│   └── 📄 ARCHITECTURE.md            # Diagramas y documentación técnica
-│
-└── 📁 src/
-    ├── 📄 main.ts                     # Punto de entrada de la aplicación
-    ├── 📄 app.module.ts               # Módulo raíz
-    │
-    ├── 📁 common/                     # Recursos compartidos globalmente
-    │   └── 📁 auditoria/             # 🔐 Módulo de Auditoría (Fase 3)
-    │
-    ├── 📁 config/                     # Configuración y validación de entorno
-    │   └── 📄 env.validation.ts       # Validación de variables de entorno
-    │
-    └── 📁 modules/                    # Módulos de negocio
-        │
-        ├── 📁 clientes/              # 👥 Módulo de Clientes
-        │   ├── 📄 clientes.controller.ts
-        │   ├── 📄 clientes.module.ts
-        │   ├── 📄 clientes.service.ts
-        │   └── 📁 entities/
-        │       └── 📄 cliente.entity.ts
-        │
-        └── 📁 pedidos/               # 📦 Módulo de Pedidos
-            ├── 📄 pedidos.controller.ts
-            ├── 📄 pedidos.module.ts
-            ├── 📄 pedidos.service.ts
-            ├── 📁 entities/
-            │   └── 📄 pedido.entity.ts
-            └── 📁 enums/
-                └── 📄 estado-pedido.enum.ts
-```
-
----
-
-## 🗄️ Modelo de Base de Datos
-
-```mermaid
-erDiagram
-      CLIENTES {
-          uuid id PK "Clave primaria UUID"
-          varchar nombre "Nombre completo"
-          varchar email "Correo electrónico"
-          varchar telefono "Teléfono de contacto"
-          varchar direccion "Dirección de envío"
-          varchar ciudad "Ciudad"
-          varchar departamento "Departamento"
-          timestamp fecha_creacion "Fecha de registro"
-          timestamp fecha_actualizacion "Última actualización"
-      }
-
-      PEDIDOS {
-          uuid id PK "Clave primaria UUID"
-          enum estado "PENDIENTE | GUIA_GENERADA | ENVIADO | OFICINA | CANCELADO"
-          decimal total "Monto total en COP"
-          text descripcion "Notas opcionales"
-          timestamp fecha_creacion "Fecha del pedido"
-          timestamp fecha_actualizacion "Última modificación"
-          uuid cliente_id FK "Relación con cliente"
-      }
-
-      PEDIDO_HISTORIAL {
-          uuid id PK "Clave primaria UUID"
-          uuid pedido_id FK "Pedido afectado"
-          varchar usuario_id "Quién realizó la acción"
-          varchar accion "Tipo de acción realizada"
-          varchar estado_anterior "Estado antes del cambio"
-          varchar estado_nuevo "Estado después del cambio"
-          text motivo "Razón del cambio"
-          varchar ip_address "IP del solicitante"
-          jsonb cambios "Snapshot de datos modificados"
-          timestamp fecha "Momento exacto de la acción"
-      }
-
-      CLIENTES ||--o{ PEDIDOS : "tiene muchos"
-      PEDIDOS ||--o{ PEDIDO_HISTORIAL : "registra historial"
-```
-
 ---
 
 ## ⚙️ Quick Start
@@ -379,16 +288,7 @@ npm run start:dev
 
 > 💡 **pgAdmin** estará disponible en `http://localhost:5050` con las credenciales del `.env`.
 
-### Variables de Entorno
 
-| Variable | Descripción | Valor por defecto |
-| :--- | :--- | :---: |
-| `POSTGRES_USER` | Usuario de PostgreSQL | `postgres` |
-| `POSTGRES_PASSWORD` | Contraseña de PostgreSQL | `postgres` |
-| `POSTGRES_DB` | Nombre de la base de datos | `crm_lastere` |
-| `DB_PORT` | Puerto expuesto de PostgreSQL | `5433` |
-| `PORT` | Puerto del servidor NestJS | `3000` |
-| `DATABASE_URL` | URL de conexión completa | `postgresql://...` |
 
 ---
 
