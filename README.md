@@ -7,7 +7,7 @@
 [![NestJS](https://img.shields.io/badge/NestJS-v10-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-v5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v16-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![TypeORM](https://img.shields.io/badge/TypeORM-v0.3-FE0803?style=for-the-badge&logo=typeorm&logoColor=white)](https://typeorm.io/)
+[![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
 [![SENA](https://img.shields.io/badge/SENA-ADSO-39A900?style=for-the-badge&logo=sena&logoColor=white)](https://www.sena.edu.co/)
 [![Licencia](https://img.shields.io/badge/Licencia-Privada-orange?style=for-the-badge)](#)
 
@@ -135,7 +135,7 @@ graph TB
     end
 
     subgraph Data["🗄️ Capa de Datos"]
-        ORM["TypeORM"]
+        ORM["Prisma ORM"]
         DB[("PostgreSQL 🐘")]
     end
 
@@ -271,12 +271,12 @@ stateDiagram-v2
 
 | Campo | Tipo (PostgreSQL) | Tipo (TypeScript) | Descripción |
 | :--- | :---: | :---: | :--- |
-| `id` | `UUID` | `string` | Identificador único generado automáticamente |
-| `estado` | `ENUM` | `EstadoPedido` | Estado actual del pedido (valores predefinidos) |
-| `total` | `DECIMAL(11,2)` | `number` | Monto total en COP con precisión financiera |
+| `id` | `UUID` | `string` | Identificador único generado automáticamente (Prisma `@default(uuid())`) |
+| `estado` | `ENUM` | `EstadoPedido` | Estado actual del pedido (Prisma `enum EstadoPedido`) |
+| `total` | `DECIMAL(11,2)` | `Decimal` | Monto total en COP con precisión financiera (Prisma `@db.Decimal(11,2)`) |
 | `descripcion` | `TEXT` | `string \| null` | Notas u observaciones opcionales del pedido |
-| `fecha_creacion` | `TIMESTAMP` | `Date` | Fecha y hora de creación (automática) |
-| `fecha_actualizacion` | `TIMESTAMP` | `Date` | Fecha y hora de la última modificación (automática) |
+| `fecha_creacion` | `TIMESTAMP` | `DateTime` | Fecha y hora de creación (Prisma `@default(now())`) |
+| `fecha_actualizacion` | `TIMESTAMP` | `DateTime` | Fecha y hora de la última modificación (Prisma `@updatedAt`) |
 
 > 💡 **Nota sobre la moneda:** Los montos se manejan en **Pesos Colombianos (COP)** con precisión `DECIMAL(11,2)`, soportando valores de hasta **$999,999,999.99 COP**.
 
@@ -361,7 +361,7 @@ Asegúrese de tener instaladas las siguientes tecnologías:
 | 🏗️ **Framework** | NestJS v10 | Framework empresarial para aplicaciones escalables |
 | 📝 **Lenguaje** | TypeScript v5 | Tipado estricto para un código seguro y mantenible |
 | 🗄️ **Base de Datos** | PostgreSQL v16 | Motor relacional robusto con soporte para tipos ENUM y JSONB |
-| 🔗 **ORM** | TypeORM v0.3 | Mapeo objeto-relacional con decoradores y migraciones |
+| 🔗 **ORM** | **Prisma** | ORM moderno con schema declarativo, type-safety total y migraciones automáticas |
 | 🐳 **Contenedores** | Docker Compose | Infraestructura reproducible y portable |
 | ✅ **Validación** | class-validator | Validación de datos de entrada con decoradores |
 | 🔄 **Transformación** | class-transformer | Transformación y serialización de objetos |
@@ -379,10 +379,11 @@ timeline
     title Plan de Desarrollo CRM Lastere
     
     section Fase 1 - Fundamentos
-        Estructura del proyecto     : ✅ Completado
-        Entidad Pedido y enums      : ✅ Completado
-        Entidad Cliente             : 🔄 En progreso
-        Relaciones entre entidades  : ⏳ Pendiente
+        Estructura de carpetas y archivos vacíos  : ✅ Completado
+        Instalación y configuración de Prisma     : ⏳ Pendiente
+        Schema Prisma — Modelo Pedido y enums     : ⏳ Pendiente
+        Schema Prisma — Modelo Cliente            : ⏳ Pendiente
+        Relaciones entre modelos y migración      : ⏳ Pendiente
     
     section Fase 2 - API REST
         DTOs y validaciones     : ⏳ Pendiente
@@ -414,7 +415,7 @@ El desarrollo del proyecto se rige bajo los siguientes estándares de calidad de
 | **TypeScript Estricto** | Todo el código debe implementar tipado estricto para garantizar la robustez y prevenir errores en tiempo de ejecución. |
 | **Prohibición de `any`** | Cada variable, parámetro y tipo de retorno debe estar explícitamente tipado. |
 | **Principios SOLID** | Adherencia a los cinco principios de diseño orientado a objetos para obtener un sistema altamente mantenible y escalable. |
-| **TypeORM** | Todas las interacciones con la base de datos relacional deben realizarse a través del ORM, garantizando abstracción y seguridad. |
+| **Prisma ORM** | Todas las interacciones con la base de datos relacional deben realizarse a través de **Prisma Client**, garantizando type-safety completo y migraciones controladas mediante `prisma migrate`. |
 | **Arquitectura Modular** | Organización del código en módulos autónomos y cohesivos dentro de NestJS para facilitar el desarrollo en paralelo. |
 | **Contexto Colombia** | Lógica adaptada al mercado colombiano, utilizando tipos de datos precisos para el manejo de importes en Pesos Colombianos (COP). |
 
